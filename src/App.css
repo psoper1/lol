@@ -1,6 +1,37 @@
+body {
+  background-color: #101935!important;
+}
+
 .scrollable-container {
-  max-height: 656px;
+  max-height: 767px;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
-    top: 350px;
+  top: 20vh;
+  background: none;
+}
+
+.champ-name {
+  font-size: 10px;
+  font-weight: bold;
+  padding-top: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.champ-icon {
+  height: 50px;
+  width: 50px;
+}
+
+::-webkit-scrollbar {
+  width: .45rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(216, 216, 216, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track{
+  background: transparent;
 }
