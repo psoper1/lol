@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import Nav from "./Nav";
 
 function Home() {
 
     return (
         <>
-        <Link to='/champ-list' className='btn btn-primary'>Click to show champs</Link>
+        <Nav />
+        <div className='text-center text-white'>REEEEEEEEEEEEEEEEE</div>
         </>
     )
 }

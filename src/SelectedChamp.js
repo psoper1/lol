@@ -1,7 +1,10 @@
+import Nav from "./Nav";
+
 function SelectedChamp({champ}) {
     return (
         <>
-        <h1>{champ.name}</h1>
+        <Nav />
+        <h1 className='text-white'>{champ.name}</h1>
         </>
     )
 }

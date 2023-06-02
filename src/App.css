@@ -3,11 +3,11 @@ body {
 }
 
 .scrollable-container {
-  max-height: 767px;
+  max-height: 771px;
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  top: 20vh;
+  top: 10vh;
   background: none;
 }
 
@@ -21,9 +21,30 @@ body {
 }
 
 .champ-icon {
-  height: 50px;
-  width: 50px;
+  height: 64px;
+  width: 64px;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 2px 1px black;
 }
+
+.champ-icon:hover {
+  box-shadow: 0 0 5px 2px #DBCBD8;
+  transform: scale(0.99);
+}
+
+.navbar {
+  background-color: #9AD4D6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bg-custom {
+  background-color: #9AD4D6;
+}
+
+
+
+
+/* Scrollbar */
 
 ::-webkit-scrollbar {
   width: .45rem;
