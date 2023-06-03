@@ -8,15 +8,16 @@ import SelectedChamp from './SelectedChamp';
 
 function App() {
 
-  const [champ, setChamp] = useState(null)
+  const [champ, setChamp] = useState(null);
+  const [data, setData] = useState([]);
 
   return (
     <>
       <Router basename='/'>
         <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/champ-list' element={<ChampList champ={champ} setChamp={setChamp} />} />
-        <Route path='/selected-champ' element={<SelectedChamp champ={champ} setChamp={setChamp} />} />
+        <Route path='/champ-list' element={<ChampList champ={champ} setChamp={setChamp} data={data} setData={setData} />} />
+        <Route path='/selected-champ' element={<SelectedChamp champ={champ} setChamp={setChamp} setData={setData} />} />
         </Routes>
       </Router>
     </>
