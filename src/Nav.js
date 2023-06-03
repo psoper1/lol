@@ -11,10 +11,10 @@ function Nav() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link to='/' className='nav-link'>Home</Link>
+                                <Link to='/' className='text-color nav-link'>Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/champ-list' className='nav-link'>Full Champ List</Link>
+                                <Link to='/champ-list' className='text-color nav-link'>Full Champ List</Link>
                             </li>
                         </ul>
                     </div>

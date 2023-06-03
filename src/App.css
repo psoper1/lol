@@ -1,5 +1,19 @@
+@font-face {
+  font-family: 'Beaufort-Bold';
+  src: url('./Fonts/BeaufortForLoL-OTF/BeaufortforLOL-Bold.otf');
+}
+
 body {
-  background-color: #101935 !important;
+  background-color: rgb(1 10 19) !important;
+  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor.png'), auto;
+}
+
+a {
+  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto;
+}
+
+.text-color {
+  color: rgb(240 230 210);
 }
 
 .scrollable-container {
@@ -49,6 +63,11 @@ body {
   justify-content: center;
   display: flex;
   margin-top: 2%;
+  box-shadow: 0 0 50px 1px #F0E6D2;
+}
+
+.champname {
+  font-family: Beaufort-Bold;
 }
 
 

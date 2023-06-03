@@ -27,7 +27,7 @@ function ChampList({ champ, setChamp }) {
                     <div className="row text-center align-items-center">
                         {data.map(item => (
                             <div key={item.id} className="col-md-1 champ-item">
-                                <h2 className='champ-name text-white'>{item.name}</h2>
+                                <h2 className='text-color champ-name'>{item.name}</h2>
                                 <Link to='/selected-champ'>
                                     <img className='champ-icon' src={item.image} alt='champ-icon' onClick={() => setChamp(item)} />
                                 </Link>
