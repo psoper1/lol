@@ -1,5 +1,5 @@
 body {
-  background-color: #101935!important;
+  background-color: #101935 !important;
 }
 
 .scrollable-container {
@@ -41,6 +41,16 @@ body {
   background-color: #9AD4D6;
 }
 
+/* more info page */
+
+.splash {
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  display: flex;
+  margin-top: 2%;
+}
+
 
 
 
@@ -49,10 +59,12 @@ body {
 ::-webkit-scrollbar {
   width: .45rem;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: rgba(216, 216, 216, 0.4);
   border-radius: 3px;
 }
-::-webkit-scrollbar-track{
+
+::-webkit-scrollbar-track {
   background: transparent;
 }
