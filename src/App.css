@@ -60,6 +60,9 @@ a {
   border-top-color: rgb(70, 55, 20);
   border-right-color: rgb(70, 55, 20);
   border-left-color: rgb(70, 55, 20);
+  position: sticky !important;
+  top: 0;
+  z-index: 999;
 }
 
 .nav-link {
@@ -70,7 +73,6 @@ a {
   line-height: 1.26;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  position: relative;
   transition: opacity 0.3s ease 0s;
   opacity: 1;
   text-align: center;
@@ -99,6 +101,10 @@ a {
 
 .champname {
   font-family: Beaufort-Bold;
+}
+
+.page-section {
+  height: 100vh;
 }
 
 
