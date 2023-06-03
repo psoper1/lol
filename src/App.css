@@ -1,20 +1,25 @@
-@font-face {
-  font-family: 'Beaufort-Bold';
-  src: url('./Fonts/BeaufortForLoL-OTF/BeaufortforLOL-Bold.otf');
-}
-
 body {
   background-color: rgb(1 10 19) !important;
-  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor.png'), auto;
+}
+
+html {
+  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor.png'), auto !important;
+}
+
+.bg-custom {
+  background-color: rgb(1 10 19);
 }
 
 a {
-  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto;
+  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto !important;
 }
 
 .text-color {
   color: rgb(240 230 210);
 }
+
+
+/* Scrollable champ search */
 
 .scrollable-container {
   max-height: 771px;
@@ -46,14 +51,40 @@ a {
   transform: scale(0.99);
 }
 
+
+/* Navbar */
+
 .navbar {
-  background-color: #9AD4D6;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgb(70, 55, 20);
+  border-top-color: rgb(70, 55, 20);
+  border-right-color: rgb(70, 55, 20);
+  border-left-color: rgb(70, 55, 20);
 }
 
-.bg-custom {
-  background-color: #9AD4D6;
+.nav-link {
+  color: rgba(240, 230, 210, 0.87) !important;
+  font-family: Beaufort-Bold;
+  font-size: 0.80rem !important;
+  font-weight: 700 !important;
+  line-height: 1.26;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  position: relative;
+  transition: opacity 0.3s ease 0s;
+  opacity: 1;
+  text-align: center;
 }
+
+.nav-link:hover,
+.nav-link:focus {
+  color: rgb(238, 233, 224) !important;
+}
+
+.nav-link.active {
+  color: rgb(238, 233, 224) !important;
+}
+
 
 /* more info page */
 
@@ -71,8 +102,6 @@ a {
 }
 
 
-
-
 /* Scrollbar */
 
 ::-webkit-scrollbar {
@@ -86,4 +115,17 @@ a {
 
 ::-webkit-scrollbar-track {
   background: transparent;
+}
+
+
+/* Fonts */
+
+@font-face {
+  font-family: 'Beaufort-Bold';
+  src: url('./Fonts/BeaufortForLoL-OTF/BeaufortforLOL-Bold.otf');
+}
+
+@font-face {
+  font-family: 'Spiegal-Regular';
+  src: url('./Fonts/Spiegel-OTF/Spiegel-Regular.otf');
 }
