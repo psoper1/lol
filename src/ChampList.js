@@ -2,7 +2,6 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import Nav from './Nav';
-import axios from 'axios';
 
 function ChampList({ champ, setChamp, data, setData }) {
 
@@ -18,7 +17,7 @@ function ChampList({ champ, setChamp, data, setData }) {
             .catch(error => {
                 console.error(error);
             })
-    }, []);
+    }, [setData]);
 
     useEffect(() => {
         const fetchData = async () => {
