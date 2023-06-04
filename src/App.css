@@ -97,6 +97,7 @@ a {
   display: flex;
   margin-top: 2%;
   box-shadow: 0 0 50px 1px #F0E6D2;
+  border-radius: 25px;
 }
 
 .champname {
