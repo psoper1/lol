@@ -108,7 +108,8 @@ a {
   height: 100vh;
 }
 
-.page-section-two, .page-section-three {
+.page-section-two,
+.page-section-three {
   height: 100vh;
   margin-top: 60px;
   padding-top: 20px;
@@ -120,13 +121,61 @@ a {
 
 .second-section {
   margin-top: 60px;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: flex-start; */
 }
 
 .desc-section {
   margin-top: 60px;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+
+.spinner-border {
+  --bs-spinner-width: 5rem !important;
+  --bs-spinner-height: 5rem !important;
+}
+
+.scroll-arrow-up {
+  display: flex;
+  margin-top: 60px;
+  justify-content: center;
+}
+
+.text-to-top {
+  display: flex;
+  justify-content: center;
+  font-family: Spiegel-Regular;
+  font-weight: bold;
+  color: #C89B3C;
+  ;
+}
+
+.scroll-arrow-up:hover,
+.text-to-top:hover {
+  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto !important;
+}
+
+/* Desc Section */
+
+.champ-title-desc {
+  font-family: Beaufort-Bold;
+  color: #C89B3C;
+  text-align: center;
+}
+
+.champ-blurb-desc {
+  font-family: Spiegel-Regular;
+  font-size: 50px;
+  color: #C89B3C;
+  text-align: center;
+  padding-top: 10%;
+}
+
+.line-break {
+  border-bottom: 2px solid rgb(70, 55, 20);
+  margin-top: 10%;
 }
 
 /* Pie Chart */
@@ -187,7 +236,8 @@ table.GeneratedTable th {
   transform: rotateZ(45deg);
 }
 
-.scroll-arrow:hover, .scroll-arrow-bottom:hover {
+.scroll-arrow:hover,
+.scroll-arrow-bottom:hover {
   cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto !important;
 }
 

@@ -2,10 +2,12 @@ import Nav from "./Nav";
 import { useRef, useEffect, useState } from 'react';
 import SectionTwo from "./SectionTwo";
 import DescSection from "./DescSection";
+import { FaArrowCircleUp } from 'react-icons/fa';
 
 function SelectedChamp({ champ }) {
   const detailsSectionRef = useRef(null);
   const [newData, setNewData] = useState([]);
+  const [showScrollArrow, setShowScrollArrow] = useState(false);
 
   const scrollToDetailsSection = () => {
     detailsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -16,6 +18,10 @@ function SelectedChamp({ champ }) {
     if (thirdSection) {
       thirdSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const api = 'http://127.0.0.1:8000/champs/';
@@ -34,11 +40,29 @@ function SelectedChamp({ champ }) {
     fetchData();
   }, [setNewData]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      setShowScrollArrow(scrollY > windowHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   if (!newData) {
     return (
       <>
         <Nav />
-        <div>Loading...</div>
+        <div className="container spinner">
+          <div className="spinner-border text-warning" role="status">
+            <span className="sr-only"></span>
+          </div>
+        </div>
       </>
     )
   }
@@ -49,7 +73,7 @@ function SelectedChamp({ champ }) {
     <div>
       <Nav />
       <section className="page-section">
-        <h1 className='text-center champname text-color'>{champ.name}</h1>
+        <h1 className='text-center champname text-color'>{champ.name.toUpperCase()}</h1>
         {championImage && (
           <div className="container">
             <img
@@ -66,7 +90,15 @@ function SelectedChamp({ champ }) {
         <div className="scroll-arrow-bottom text-color text-center section-switch" onClick={scrollToThirdSection}></div>
       </div>
       <div className="page-section-three">
-      <SectionTwo champ={champ} scrollToThirdSection={scrollToThirdSection} />
+        {showScrollArrow && (
+          <>
+            <div className="scroll-arrow-up text-color text-center section-switch" onClick={scrollToTop}>
+              <FaArrowCircleUp />
+            </div>
+            <div className="text-to-top">Back to top</div>
+          </>
+        )}
+        <SectionTwo champ={champ} scrollToThirdSection={scrollToThirdSection} />
       </div>
     </div>
   );
