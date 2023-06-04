@@ -72,6 +72,9 @@ function SelectedChamp({ champ }) {
   return (
     <div>
       <Nav />
+      <video autoPlay muted loop className="background-video">
+        <source src="https://assets.contentstack.io/v3/assets/blt2ac872571a60ee02/bltc3128a843ac2ef28/618d752b6407fe7f991e9915/background-video-d-01.mp4" type="video/mp4" />
+      </video>
       <section className="page-section">
         <h1 className='text-center champname text-color'>{champ.name.toUpperCase()}</h1>
         {championImage && (
