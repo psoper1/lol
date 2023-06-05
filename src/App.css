@@ -160,6 +160,13 @@ a {
   cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto !important;
 }
 
+/* Icons */
+
+.fill-icon {
+  height: 32px;
+  width: 32px;
+}
+
 /* Desc Section */
 
 .champ-title-desc {
