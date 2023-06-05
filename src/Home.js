@@ -6,8 +6,8 @@ function Home() {
         <>
             <Nav />
             <div className="container">
-                <div class="form-outline">
-                    <input type="search" id="summoner-search" class="form-control text-center1" placeholder="Search for Summoner" aria-label="Search" />
+                <div className="form-outline">
+                    <input type="search" id="summoner-search" className="form-control text-center1" placeholder="Search for Summoner" aria-label="Search" />
                 </div>
             </div>
         </>
