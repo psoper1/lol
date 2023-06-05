@@ -51,6 +51,10 @@ a {
   transform: scale(0.99);
 }
 
+.lane-icon:hover {
+  transform: scale(1.2);
+}
+
 
 /* Navbar */
 
@@ -148,23 +152,28 @@ a {
 
 .text-to-top {
   font-family: Spiegel-Regular;
-    font-weight: bold;
-    color: #C89B3C;
-    position: absolute;
-    width: 100%;
+  font-weight: bold;
+  color: #C89B3C;
+  position: absolute;
+  width: 100%;
   ;
 }
 
 .scroll-arrow-up:hover,
-.text-to-top:hover {
+.text-to-top:hover,
+.lane-icon:hover {
   cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto !important;
 }
 
 /* Icons */
 
-.lane-icon {
+.lane-icons {
   height: 32px;
   width: 32px;
+  justify-content: space-evenly;
+  display: flex;
+  top: 40px;
+  position: relative;
 }
 
 /* Desc Section */
