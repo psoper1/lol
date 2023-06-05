@@ -76,6 +76,8 @@ a {
   transition: opacity 0.3s ease 0s;
   opacity: 1;
   text-align: center;
+  top: 10px;
+  position: relative;
 }
 
 .nav-link:hover,
@@ -85,6 +87,7 @@ a {
 
 .nav-link.active {
   color: rgb(238, 233, 224) !important;
+  border-bottom: 2px solid rgb(200, 155, 60);
 }
 
 
@@ -144,11 +147,11 @@ a {
 }
 
 .text-to-top {
-  display: flex;
-  justify-content: center;
   font-family: Spiegel-Regular;
-  font-weight: bold;
-  color: #C89B3C;
+    font-weight: bold;
+    color: #C89B3C;
+    position: absolute;
+    width: 100%;
   ;
 }
 

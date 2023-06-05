@@ -43,6 +43,9 @@ function ChampList({ champ, setChamp, data, setData }) {
     return (
         <>
             <Nav />
+            <video autoPlay muted loop className="background-video">
+                <source src="https://assets.contentstack.io/v3/assets/blt2ac872571a60ee02/bltc3128a843ac2ef28/618d752b6407fe7f991e9915/background-video-d-01.mp4" type="video/mp4" />
+            </video>
             <div className="container">
                 <div className="scrollable-container">
                     <div className="row text-center align-items-center">

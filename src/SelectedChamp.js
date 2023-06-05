@@ -98,7 +98,7 @@ function SelectedChamp({ champ }) {
             <div className="scroll-arrow-up text-color text-center section-switch" onClick={scrollToTop}>
               <FaArrowCircleUp />
             </div>
-            <div className="text-to-top">Back to top</div>
+            <div className="text-to-top text-center">Back to top</div>
           </>
         )}
         <SectionTwo champ={champ} scrollToThirdSection={scrollToThirdSection} />
