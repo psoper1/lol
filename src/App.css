@@ -27,7 +27,8 @@ a {
   overflow-x: hidden;
   position: relative;
   top: 10vh;
-  background: none;
+  background: transparent;
+  padding-bottom: 15px;
 }
 
 .champ-name {
@@ -172,8 +173,20 @@ a {
   width: 32px;
   justify-content: space-evenly;
   display: flex;
-  top: 40px;
+  top: 50px;
   position: relative;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: #C89B3C;
+}
+
+.lane-icon {
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.lane-icon.active {
+  border-bottom-color: rgb(200, 155, 60) !important;
 }
 
 /* Desc Section */
@@ -324,6 +337,13 @@ table.GeneratedTable th {
 
 ::-webkit-scrollbar-track {
   background: transparent;
+}
+
+@media (max-width: 990px) {
+  .champ-item {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
 }
 
 

@@ -9,10 +9,10 @@ import bot from './imgs/lanes/Bottom_icon.png';
 import support from './imgs/lanes/Support_icon.png';
 import fill from './imgs/lanes/fill.png';
 
-function ChampList({ champ, setChamp, data, setData }) {
+function ChampList({ setChamp, data, setData }) {
     const [championData, setChampionData] = useState(null);
-    const [selectedLane, setSelectedLane] = useState('all'); // Initialize with 'all' as the default lane
-
+    const [selectedLane, setSelectedLane] = useState('all');
+    const [columnClass, setColumnClass] = useState('col-md-1 champ-item')
     const apiChamps = 'http://127.0.0.1:8000/champs/';
 
     useEffect(() => {
@@ -41,6 +41,24 @@ function ChampList({ champ, setChamp, data, setData }) {
 
         fetchData();
     }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+          const screenWidth = window.innerWidth;
+          if (screenWidth <= 766) {
+            setColumnClass('col-sm-3 champ-item');
+          } else if (screenWidth <= 990) {
+            setColumnClass('col-md-2 champ-item');
+          } else {
+            setColumnClass('col-md-1 champ-item');
+          }
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
     if (!championData) {
         return <div>Loading...</div>;
@@ -103,7 +121,7 @@ function ChampList({ champ, setChamp, data, setData }) {
                 <div className="scrollable-container">
                     <div className="row text-center align-items-center">
                         {filteredChampions.map(item => (
-                            <div key={item.id} className="col-md-1 champ-item">
+                            <div key={item.id} className={columnClass}>
                                 <h2 className="text-color champ-name">{item.name}</h2>
                                 <Link to="/selected-champ">
                                     <img
