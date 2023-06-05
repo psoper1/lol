@@ -71,13 +71,13 @@ function ChampList({ champ, setChamp, data, setData }) {
                 <img
                     src={top}
                     alt='top'
-                    className={`lane-icon ${selectedLane === 'top' ? 'active' : ''}`}
+                    className={`lane-icon ${selectedLane === 'Top' ? 'active' : ''}`}
                     onClick={() => setSelectedLane('Top')}
                 />
                 <img
                     src={jungle}
                     alt='jungle'
-                    className={`lane-icon ${selectedLane === 'jungle' ? 'active' : ''}`}
+                    className={`lane-icon ${selectedLane === 'Jungle' ? 'active' : ''}`}
                     onClick={() => setSelectedLane('Jungle')}
                 />
                 <img
@@ -89,13 +89,13 @@ function ChampList({ champ, setChamp, data, setData }) {
                 <img
                     src={bot}
                     alt='bot'
-                    className={`lane-icon ${selectedLane === 'bot' ? 'active' : ''}`}
+                    className={`lane-icon ${selectedLane === 'Bot' ? 'active' : ''}`}
                     onClick={() => setSelectedLane('Bot')}
                 />
                 <img
                     src={support}
                     alt='support'
-                    className={`lane-icon ${selectedLane === 'support' ? 'active' : ''}`}
+                    className={`lane-icon ${selectedLane === 'Support' ? 'active' : ''}`}
                     onClick={() => setSelectedLane('Support')}
                 />
             </div>
