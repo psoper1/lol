@@ -1,7 +1,10 @@
 .champ-title-desc {
-    font-family: Beaufort-Bold;
-    color: #C89B3C;
-    text-align: center;
+  font-family: Beaufort-Bold;
+  color: #C89B3C;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
   }
   
   .champ-blurb-desc {
@@ -26,5 +29,5 @@
   
   .line-break {
     border-bottom: 2px solid rgb(70, 55, 20);
-    margin-top: 10%;
+    margin-top: 3%;
   }
