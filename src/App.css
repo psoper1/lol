@@ -4,6 +4,7 @@ body {
 
 html {
   cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor.png'), auto !important;
+  max-width: 100vw;
 }
 
 .bg-custom {
@@ -73,10 +74,10 @@ a {
 .nav-link {
   color: rgba(240, 230, 210, 0.87) !important;
   font-family: Beaufort-Bold;
-  font-size: 0.80rem !important;
+  font-size: 0.90rem !important;
   font-weight: 700 !important;
-  line-height: 1.26;
-  letter-spacing: 0.06em;
+  line-height: 2.26;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: opacity 0.3s ease 0s;
   opacity: 1;
@@ -155,7 +156,6 @@ a {
   font-family: Spiegel-Regular;
   font-weight: bold;
   color: #C89B3C;
-  position: absolute;
   width: 100%;
   ;
 }
@@ -199,10 +199,22 @@ a {
 
 .champ-blurb-desc {
   font-family: Spiegel-Regular;
-  font-size: 50px;
   color: #C89B3C;
   text-align: center;
   padding-top: 10%;
+  font-size: 4rem;
+}
+
+@media (max-width: 1200px) {
+  .champ-blurb-desc {
+    font-size: calc(4rem - 2rem * ((100vw - 320px) / 880));
+  }
+}
+
+@media (max-width: 768px) {
+  .champ-blurb-desc {
+    font-size: 2rem;
+  }
 }
 
 .line-break {
@@ -211,6 +223,15 @@ a {
 }
 
 /* Video Background */
+
+/* .video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100vw;
+  height: 100%;
+  z-index: -1;
+} */
 
 .background-video {
   position: fixed;
@@ -234,6 +255,20 @@ canvas {
 .pie-chart {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 508px) {
+  canvas {
+    height: 400px !important;
+    width: 400px !important;
+  }
+}
+
+@media (max-width: 409px) {
+  canvas {
+    height: 300px !important;
+    width: 300px !important;
+  }
 }
 
 /* Table */

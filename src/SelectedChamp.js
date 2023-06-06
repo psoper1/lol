@@ -70,38 +70,72 @@ function SelectedChamp({ champ }) {
   const championImage = newData.find(champion => champion.name === champ.name)?.splash;
 
   return (
-    <div>
+    <div className="container-fluid">
       <Nav />
-      <video autoPlay muted loop className="background-video">
-        <source src="https://assets.contentstack.io/v3/assets/blt2ac872571a60ee02/bltc3128a843ac2ef28/618d752b6407fe7f991e9915/background-video-d-01.mp4" type="video/mp4" />
-      </video>
+      {/* <div className="video-container">
+        <video autoPlay muted loop className="embed-responsive embed-responsive-4by3 background-video">
+          <source src="https://assets.contentstack.io/v3/assets/blt2ac872571a60ee02/bltc3128a843ac2ef28/618d752b6407fe7f991e9915/background-video-d-01.mp4" type="video/mp4" />
+        </video>
+      </div> */}
       <section className="page-section">
-        <h1 className='text-center champname text-color'>{champ.name.toUpperCase()}</h1>
-        {championImage && (
-          <div className="container">
-            <img
-              src={championImage}
-              className="img-fluid splash"
-              alt='splash'
-            />
+        <div className="container">
+          <div className="row">
+            <div className="col text-center">
+              <h1 className="champname text-color">{champ.name.toUpperCase()}</h1>
+            </div>
+          </div>
+          {championImage && (
+            <div className="row">
+              <div className="col">
+                <img
+                  src={championImage}
+                  className="img-fluid splash"
+                  alt='splash'
+                />
+              </div>
+            </div>
+          )}
+          <div className="row">
+            <div className="col text-center">
+              <div className="scroll-arrow text-color text-center section-switch" onClick={scrollToDetailsSection}></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="container page-section-two" ref={detailsSectionRef}>
+        <div className="row">
+          <div className="col">
+            <DescSection champ={champ} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col text-center">
+            <div className="scroll-arrow-bottom text-color text-center section-switch" onClick={scrollToThirdSection}></div>
+          </div>
+        </div>
+      </div>
+      <div className="container page-section-three">
+        {showScrollArrow && (
+          <div className="row">
+            <div className="col text-center">
+              <div className="scroll-arrow-up text-color text-center section-switch" onClick={scrollToTop}>
+                <FaArrowCircleUp />
+              </div>
+            </div>
           </div>
         )}
-        <div className="scroll-arrow text-color text-center section-switch" onClick={scrollToDetailsSection}></div>
-      </section>
-      <div className="page-section-two" ref={detailsSectionRef}>
-        <DescSection champ={champ} />
-        <div className="scroll-arrow-bottom text-color text-center section-switch" onClick={scrollToThirdSection}></div>
-      </div>
-      <div className="page-section-three">
         {showScrollArrow && (
-          <>
-            <div className="scroll-arrow-up text-color text-center section-switch" onClick={scrollToTop}>
-              <FaArrowCircleUp />
+          <div className="row">
+            <div className="col text-center">
+              <div className="text-to-top text-center">Back to top</div>
             </div>
-            <div className="text-to-top text-center">Back to top</div>
-          </>
+          </div>
         )}
-        <SectionTwo champ={champ} scrollToThirdSection={scrollToThirdSection} />
+        <div className="row">
+          <div className="col">
+            <SectionTwo champ={champ} scrollToThirdSection={scrollToThirdSection} />
+          </div>
+        </div>
       </div>
     </div>
   );
