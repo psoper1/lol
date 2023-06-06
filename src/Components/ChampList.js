@@ -7,6 +7,7 @@ import mid from '../imgs/lanes/Middle_icon.png';
 import bot from '../imgs/lanes/Bottom_icon.png';
 import support from '../imgs/lanes/Support_icon.png';
 import fill from '../imgs/lanes/fill.png';
+import BgVideo from './BgVideo';
 
 function ChampList({ setChamp, data, setData }) {
     const [championData, setChampionData] = useState(null);
@@ -43,21 +44,21 @@ function ChampList({ setChamp, data, setData }) {
 
     useEffect(() => {
         const handleResize = () => {
-          const screenWidth = window.innerWidth;
-          if (screenWidth <= 766) {
-            setColumnClass('col-sm-3 champ-item');
-          } else if (screenWidth <= 990) {
-            setColumnClass('col-md-2 champ-item');
-          } else {
-            setColumnClass('col-md-1 champ-item');
-          }
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 766) {
+                setColumnClass('col-sm-3 champ-item');
+            } else if (screenWidth <= 990) {
+                setColumnClass('col-md-2 champ-item');
+            } else {
+                setColumnClass('col-md-1 champ-item');
+            }
         };
         handleResize();
         window.addEventListener('resize', handleResize);
         return () => {
-          window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', handleResize);
         };
-      }, []);
+    }, []);
 
     if (!championData) {
         return <div>Loading...</div>;
@@ -75,9 +76,7 @@ function ChampList({ setChamp, data, setData }) {
     return (
         <>
             <Nav />
-            <video autoPlay muted loop className="background-video">
-                <source src="https://assets.contentstack.io/v3/assets/blt2ac872571a60ee02/bltc3128a843ac2ef28/618d752b6407fe7f991e9915/background-video-d-01.mp4" type="video/mp4" />
-            </video>
+            <BgVideo />
             <div className='container lane-icons'>
                 <img
                     src={fill}

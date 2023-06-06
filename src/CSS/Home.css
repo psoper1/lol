@@ -1,0 +1,17 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+.search-button {
+    width: 100%;
+    height: 100%;
+    right: 10%;
+    position: relative;
+    color: rgb(200, 155, 60) !important;
+    border: none !important;
+}
+
+.input-group-text {
+    background-color: #ffffff !important;
+}
