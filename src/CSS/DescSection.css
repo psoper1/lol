@@ -14,7 +14,7 @@
   
   @media (max-width: 1200px) {
     .champ-blurb-desc {
-      font-size: calc(4rem - 2rem * ((100vw - 320px) / 880));
+      font-size: 3rem;
     }
   }
   
