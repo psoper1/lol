@@ -1,0 +1,35 @@
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgb(70, 55, 20);
+    border-top-color: rgb(70, 55, 20);
+    border-right-color: rgb(70, 55, 20);
+    border-left-color: rgb(70, 55, 20);
+    position: sticky !important;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .nav-link {
+    color: rgba(240, 230, 210, 0.87) !important;
+    font-family: Beaufort-Bold;
+    font-size: 0.90rem !important;
+    font-weight: 700 !important;
+    line-height: 2.26;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease 0s;
+    opacity: 1;
+    text-align: center;
+    top: 10px;
+    position: relative;
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    color: rgb(238, 233, 224) !important;
+  }
+  
+  .nav-link.active {
+    color: rgb(238, 233, 224) !important;
+    border-bottom: 2px solid rgb(200, 155, 60);
+  }

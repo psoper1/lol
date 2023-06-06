@@ -1,0 +1,30 @@
+.scrollable-container {
+    max-height: 771px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    top: 10vh;
+    background: transparent;
+    padding-bottom: 15px;
+  }
+  
+  .champ-name {
+    font-size: 10px;
+    font-weight: bold;
+    padding-top: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .champ-icon {
+    height: 64px;
+    width: 64px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 2px 1px black;
+  }
+  
+  .champ-icon:hover {
+    box-shadow: 0 0 5px 2px #DBCBD8;
+    transform: scale(0.99);
+  }

@@ -1,0 +1,88 @@
+body {
+  background-color: rgb(1 10 19) !important;
+}
+
+.bg-custom {
+  background-color: rgb(1 10 19);
+}
+
+html {
+  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor.png'), auto !important;
+  max-width: 100vw;
+}
+
+
+a {
+  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto !important;
+}
+
+.scroll-arrow-up:hover,
+.text-to-top:hover,
+.lane-icon:hover {
+  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto !important;
+}
+
+.scroll-arrow:hover,
+.scroll-arrow-bottom:hover {
+  cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto !important;
+}
+
+.text-color {
+  color: rgb(240 230 210);
+}
+
+
+/* Video Background */
+
+.background-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: .45rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(216, 216, 216, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 990px) {
+  .champ-item {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+
+/* Fonts */
+
+@font-face {
+  font-family: 'Beaufort-Bold';
+  src: url('../Fonts/BeaufortForLoL-OTF/BeaufortforLOL-Bold.otf');
+}
+
+@font-face {
+  font-family: 'Spiegal-Regular';
+  src: url('../Fonts/Spiegel-OTF/Spiegel-Regular.otf');
+}
+
+.description-text {
+  font-family: Spiegal-Regular;
+  color: rgb(240 230 210);
+}

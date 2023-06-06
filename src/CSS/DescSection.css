@@ -1,0 +1,30 @@
+.champ-title-desc {
+    font-family: Beaufort-Bold;
+    color: #C89B3C;
+    text-align: center;
+  }
+  
+  .champ-blurb-desc {
+    font-family: Spiegel-Regular;
+    color: #C89B3C;
+    text-align: center;
+    padding-top: 10%;
+    font-size: 4rem;
+  }
+  
+  @media (max-width: 1200px) {
+    .champ-blurb-desc {
+      font-size: calc(4rem - 2rem * ((100vw - 320px) / 880));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .champ-blurb-desc {
+      font-size: 2rem;
+    }
+  }
+  
+  .line-break {
+    border-bottom: 2px solid rgb(70, 55, 20);
+    margin-top: 10%;
+  }

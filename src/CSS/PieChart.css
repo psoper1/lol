@@ -1,0 +1,23 @@
+canvas {
+    height: 500px !important;
+    width: 500px !important;
+  }
+  
+  .pie-chart {
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media (max-width: 508px) {
+    canvas {
+      height: 400px !important;
+      width: 400px !important;
+    }
+  }
+  
+  @media (max-width: 409px) {
+    canvas {
+      height: 300px !important;
+      width: 300px !important;
+    }
+  }

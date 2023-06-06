@@ -1,10 +1,18 @@
-import './App.css';
+import './CSS/App.css';
+import './CSS/Scrollable.css';
+import './CSS/Nav.css';
+import './CSS/MoreInfo.css';
+import './CSS/LaneIcons.css';
+import './CSS/DescSection.css';
+import './CSS/PieChart.css';
+import './CSS/Table.css';
+import './CSS/ScrollArrows.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import ChampList from './ChampList';
+import ChampList from './Components/ChampList';
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './Home';
+import Home from './Components/Home';
 import { useState } from 'react';
-import SelectedChamp from './SelectedChamp';
+import SelectedChamp from './Components/SelectedChamp/SelectedChamp';
 
 function App() {
 

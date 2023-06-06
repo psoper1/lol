@@ -1,0 +1,19 @@
+table.GeneratedTable {
+    width: 100%;
+    background-color: rgb(1 10 19);
+    border-collapse: collapse;
+    color: #000000;
+    display: table;
+  }
+  
+  table.GeneratedTable td,
+  table.GeneratedTable th {
+    border-width: 1px;
+    border-color: rgb(70, 55, 20);
+    border-style: solid;
+    padding: 3px;
+  }
+  
+  .att-name {
+    width: 50%;
+  }

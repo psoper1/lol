@@ -1,13 +1,12 @@
-import './App.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
-import top from './imgs/lanes/Top_icon.png';
-import jungle from './imgs/lanes/Jungle_icon.png';
-import mid from './imgs/lanes/Middle_icon.png';
-import bot from './imgs/lanes/Bottom_icon.png';
-import support from './imgs/lanes/Support_icon.png';
-import fill from './imgs/lanes/fill.png';
+import top from '../imgs/lanes/Top_icon.png';
+import jungle from '../imgs/lanes/Jungle_icon.png';
+import mid from '../imgs/lanes/Middle_icon.png';
+import bot from '../imgs/lanes/Bottom_icon.png';
+import support from '../imgs/lanes/Support_icon.png';
+import fill from '../imgs/lanes/fill.png';
 
 function ChampList({ setChamp, data, setData }) {
     const [championData, setChampionData] = useState(null);
