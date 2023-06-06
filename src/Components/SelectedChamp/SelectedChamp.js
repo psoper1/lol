@@ -81,7 +81,7 @@ function SelectedChamp({ champ }) {
         <div className="container">
           <div className="row">
             <div className="col text-center">
-              <h1 className="champname text-color">{champ.name.toUpperCase()}</h1>
+              <h1 className="champname">{champ.name.toUpperCase()}, {champ.title.toUpperCase()}</h1>
             </div>
           </div>
           {championImage && (
