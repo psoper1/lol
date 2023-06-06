@@ -5,7 +5,7 @@ function Nav() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-custom">
-            <div className="container-fluid">
+            {/* <div className="container-fluid"> */}
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -18,7 +18,7 @@ function Nav() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav d-flex justify-content-between w-50">
+                    <ul className="navbar-nav d-flex justify-content-between text-center w-50">
                         <li className={`nav-item col ${location.pathname === '/' ? 'active' : ''}`}>
                             <NavLink to="/" className="nav-link">
                                 Home
@@ -31,7 +31,7 @@ function Nav() {
                         </li>
                     </ul>
                 </div>
-            </div>
+            {/* </div> */}
         </nav>
 
     )

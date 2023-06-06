@@ -71,70 +71,72 @@ function SelectedChamp({ champ }) {
   const championImage = newData.find(champion => champion.name === champ.name)?.splash;
 
   return (
-    <div className="container-fluid">
+    <>
       <Nav />
-      <BgVideo />
-      <section className="page-section">
-        <div className="container">
-          <div className="row">
-            <div className="col text-center">
-              <h1 className="champname">{champ.name.toUpperCase()}, {champ.title.toUpperCase()}</h1>
+      <div className="container-fluid">
+        <BgVideo />
+        <section className="page-section">
+          <div className="container">
+            <div className="row">
+              <div className="col text-center">
+                <h1 className="champname">{champ.name.toUpperCase()}, {champ.title.toUpperCase()}</h1>
+              </div>
+            </div>
+            {championImage && (
+              <div className="row">
+                <div className="col">
+                  <img
+                    src={championImage}
+                    className="img-fluid splash"
+                    alt='splash'
+                  />
+                </div>
+              </div>
+            )}
+            <div className="row">
+              <div className="col text-center">
+                <div className="scroll-arrow text-color text-center section-switch" onClick={scrollToDetailsSection}></div>
+              </div>
             </div>
           </div>
-          {championImage && (
+        </section>
+        <div className="container page-section-two" ref={detailsSectionRef}>
+          <div className="row">
+            <div className="col">
+              <DescSection champ={champ} />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col text-center">
+              <div className="scroll-arrow-bottom text-color text-center section-switch" onClick={scrollToThirdSection}></div>
+            </div>
+          </div>
+        </div>
+        <div className="container page-section-three">
+          {showScrollArrow && (
             <div className="row">
-              <div className="col">
-                <img
-                  src={championImage}
-                  className="img-fluid splash"
-                  alt='splash'
-                />
+              <div className="col text-center">
+                <div className="scroll-arrow-up text-color text-center section-switch" onClick={scrollToTop}>
+                  <FaArrowCircleUp />
+                </div>
+              </div>
+            </div>
+          )}
+          {showScrollArrow && (
+            <div className="row">
+              <div className="col text-center">
+                <div className="text-to-top text-center">Back to top</div>
               </div>
             </div>
           )}
           <div className="row">
-            <div className="col text-center">
-              <div className="scroll-arrow text-color text-center section-switch" onClick={scrollToDetailsSection}></div>
+            <div className="col">
+              <SectionTwo champ={champ} scrollToThirdSection={scrollToThirdSection} />
             </div>
-          </div>
-        </div>
-      </section>
-      <div className="container page-section-two" ref={detailsSectionRef}>
-        <div className="row">
-          <div className="col">
-            <DescSection champ={champ} />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col text-center">
-            <div className="scroll-arrow-bottom text-color text-center section-switch" onClick={scrollToThirdSection}></div>
           </div>
         </div>
       </div>
-      <div className="container page-section-three">
-        {showScrollArrow && (
-          <div className="row">
-            <div className="col text-center">
-              <div className="scroll-arrow-up text-color text-center section-switch" onClick={scrollToTop}>
-                <FaArrowCircleUp />
-              </div>
-            </div>
-          </div>
-        )}
-        {showScrollArrow && (
-          <div className="row">
-            <div className="col text-center">
-              <div className="text-to-top text-center">Back to top</div>
-            </div>
-          </div>
-        )}
-        <div className="row">
-          <div className="col">
-            <SectionTwo champ={champ} scrollToThirdSection={scrollToThirdSection} />
-          </div>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 

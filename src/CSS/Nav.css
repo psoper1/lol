@@ -19,7 +19,6 @@
     text-transform: uppercase;
     transition: opacity 0.3s ease 0s;
     opacity: 1;
-    text-align: center;
     top: 10px;
     position: relative;
   }

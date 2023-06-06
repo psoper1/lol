@@ -8,11 +8,11 @@ function Home() {
             <Nav />
             <BgVideo />
             <div className="container search-container">
-                <div class="col-md-6 justify-content-center mt-5 pt-3">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Seach for a Summoner" />
-                        <div class="input-group-append">
-                            <button class="input-group-text search-button"><i class="fa fa-search"></i></button>
+                <div className="col-md-6 justify-content-center mt-5 pt-3">
+                    <div className="input-group mb-3">
+                        <input type="text" className="form-control" placeholder="Seach for a Summoner" />
+                        <div className="input-group-append">
+                            <button className="input-group-text search-button"><i className="fa fa-search"></i></button>
                         </div>
                     </div>
                 </div>
