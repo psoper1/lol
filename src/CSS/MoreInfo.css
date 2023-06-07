@@ -13,7 +13,7 @@
   color: #C89B3C;
 }
 
-.page-section {
+.img-section {
   height: 100vh;
 }
 
@@ -44,18 +44,4 @@
 .spinner-border {
   --bs-spinner-width: 5rem !important;
   --bs-spinner-height: 5rem !important;
-}
-
-.scroll-arrow-up {
-  display: flex;
-  margin-top: 60px;
-  justify-content: center;
-}
-
-.text-to-top {
-  font-family: Spiegel-Regular;
-  font-weight: bold;
-  color: #C89B3C;
-  width: 100%;
-  ;
 }

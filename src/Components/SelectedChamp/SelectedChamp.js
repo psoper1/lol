@@ -7,6 +7,7 @@ import BgVideo from "../BgVideo";
 function SelectedChamp({ champ }) {
   const detailsSectionRef = useRef(null);
   const [newData, setNewData] = useState([]);
+  const [page, setPage] = useState('champion');
 
   const api = 'http://127.0.0.1:8000/champs/';
 
@@ -44,7 +45,7 @@ function SelectedChamp({ champ }) {
       <Nav />
       <div className="container-fluid">
         <BgVideo />
-        <section className="page-section">
+        <section className="img-section">
           <div className="container">
             <div className="row">
               <div className="col text-center">
