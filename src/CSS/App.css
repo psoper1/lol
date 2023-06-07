@@ -16,9 +16,10 @@ a {
   cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto !important;
 }
 
-.scroll-arrow-up:hover,
-.text-to-top:hover,
-.lane-icon:hover {
+.switch-page,
+.lane-icon:hover,
+.dropdown-container,
+.dropdown-toggle {
   cursor: url('https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png'), auto !important;
 }
 
