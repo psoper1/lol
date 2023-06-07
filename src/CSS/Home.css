@@ -15,3 +15,18 @@
 .input-group-text {
     background-color: #ffffff !important;
 }
+
+.player-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-icon-div {
+    justify-content: center;
+    display: flex;
+}
+
+.profile-icon-img {
+    height: 64px;
+    width: 64px;
+}

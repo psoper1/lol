@@ -1,7 +1,7 @@
 import BgVideo from "./BgVideo";
 import Nav from "./Nav";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function Home() {
     const [playerName, setPlayerName] = useState("");
@@ -29,6 +29,12 @@ function Home() {
         setPlayerName(event.target.value);
     };
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            fetchPlayerInfo();
+        }
+    };
+
     return (
         <>
             <Nav />
@@ -37,7 +43,7 @@ function Home() {
                 <div className="row justify-content-center mt-5 pt-3">
                     <div className="col-md-6">
                         <div className="input-group mb-3">
-                            <input onChange={handleInputField} id="playerName" type="text" className="form-control" placeholder="Search for a Summoner" />
+                            <input onKeyDown={handleKeyPress} onChange={handleInputField} id="playerName" type="text" className="form-control" placeholder="Search for a Summoner" />
                             <div className="input-group-append">
                                 <button onClick={handleSearch} className="input-group-text search-button">
                                     <i className="fa fa-search"></i>
@@ -47,12 +53,10 @@ function Home() {
                     </div>
                 </div>
                 {playerInfo && (
-                    <div className="row justify-content-center mt-3">
-                        <div className="col-md-6">
-                            <div className="player-info-container">
-                                <h4>Player Name: {playerInfo.name}</h4>
-                                <img src={profileIconUrl} alt={`Profile Icon for ${playerInfo.name}`}/>
-                            </div>
+                    <div className="player-info-container">
+                        <h4 className="text-center">{playerInfo.name}</h4>
+                        <div className='profile-icon-div'>
+                            <img className='profile-icon-img' src={profileIconUrl} alt={`Profile Icon for ${playerInfo.name}`} />
                         </div>
                     </div>
                 )}
