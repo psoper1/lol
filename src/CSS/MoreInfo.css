@@ -6,6 +6,7 @@
   margin-top: 2%;
   box-shadow: 0 0 50px 1px #F0E6D2;
   border-radius: 25px;
+  max-height: 70%;
 }
 
 .champname {
@@ -14,7 +15,7 @@
 }
 
 .img-section {
-  height: 100vh;
+  margin-top: 2%;
 }
 
 .page-section-two,
@@ -32,10 +33,6 @@
   margin-top: 60px;
 }
 
-.desc-section {
-  margin-top: 60px;
-}
-
 .spinner {
   display: flex;
   justify-content: center;
@@ -44,4 +41,32 @@
 .spinner-border {
   --bs-spinner-width: 5rem !important;
   --bs-spinner-height: 5rem !important;
+}
+
+.dropdown-toggle {
+  background: transparent !important;
+  border: none !important;
+  
+}
+
+.dropdown-text {
+  font-family: Beaufort-Bold;
+}
+#pageSelectionDropdown {
+  color: #F0E6D2 !important;
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #F0E6D2 !important;
+  background-color: #C89B3C !important;
+}
+
+.show {
+  background-color: rgb(1 10 19) !important;
 }

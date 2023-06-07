@@ -8,6 +8,7 @@ import './CSS/PieChart.css';
 import './CSS/Table.css';
 import './CSS/ScrollArrows.css';
 import './CSS/Home.css';
+import './CSS/PageSelection.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import ChampList from './Components/ChampList';
 import { HashRouter as Router, Routes, Route } from "react-router-dom";

@@ -1,0 +1,16 @@
+.page-selection {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    font-family: Beaufort-Bold;
+    color: rgb(200, 155, 60);
+}
+
+.switch-page:hover {
+    color: rgb(238, 233, 224);
+}
+
+.switch-page.active {
+    border-bottom: 2px solid rgb(70, 55, 20);
+}
