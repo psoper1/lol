@@ -8,22 +8,6 @@ import BgVideo from "../BgVideo";
 function SelectedChamp({ champ }) {
   const detailsSectionRef = useRef(null);
   const [newData, setNewData] = useState([]);
-  // const [showScrollArrow, setShowScrollArrow] = useState(false);
-
-  // const scrollToDetailsSection = () => {
-  //   detailsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-  // };
-
-  // const scrollToThirdSection = () => {
-  //   const thirdSection = document.querySelector('.page-section-three');
-  //   if (thirdSection) {
-  //     thirdSection.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // };
-
-  // const scrollToTop = () => {
-  //   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // };
 
   const api = 'http://127.0.0.1:8000/champs/';
 
@@ -40,20 +24,6 @@ function SelectedChamp({ champ }) {
 
     fetchData();
   }, [setNewData]);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollY = window.scrollY;
-  //     const windowHeight = window.innerHeight;
-  //     setShowScrollArrow(scrollY > windowHeight);
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
 
   if (!newData) {
     return (
@@ -93,11 +63,6 @@ function SelectedChamp({ champ }) {
                 </div>
               </div>
             )}
-            <div className="row">
-              {/* <div className="col text-center">
-                <div className="scroll-arrow text-color text-center section-switch" onClick={scrollToDetailsSection}></div>
-              </div> */}
-            </div>
           </div>
         </section>
         <div className="container page-section-two" ref={detailsSectionRef}>
@@ -107,28 +72,9 @@ function SelectedChamp({ champ }) {
             </div>
           </div>
           <div className="row">
-            {/* <div className="col text-center">
-              <div className="scroll-arrow-bottom text-color text-center section-switch" onClick={scrollToThirdSection}></div>
-            </div> */}
           </div>
         </div>
         <div className="container page-section-three">
-          {/* {showScrollArrow && (
-            <div className="row">
-              <div className="col text-center">
-                <div className="scroll-arrow-up text-color text-center section-switch" onClick={scrollToTop}>
-                  <FaArrowCircleUp />
-                </div>
-              </div>
-            </div>
-          )} */}
-          {/* {showScrollArrow && (
-            <div className="row">
-              <div className="col text-center">
-                <div className="text-to-top text-center">Back to top</div>
-              </div>
-            </div>
-          )} */}
           <div className="row">
             <div className="col">
               <SectionTwo champ={champ} />
