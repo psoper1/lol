@@ -2,7 +2,6 @@ import Nav from "../Nav";
 import { useRef, useEffect, useState } from 'react';
 import SectionTwo from "./SectionTwo";
 import DescSection from './DescSection';
-import { FaArrowCircleUp } from 'react-icons/fa';
 import BgVideo from "../BgVideo";
 
 function SelectedChamp({ champ }) {
