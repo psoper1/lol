@@ -18,6 +18,7 @@ function Home() {
             setProfileIconUrl(profileIconUrl);
         } catch (error) {
             console.error('Error retrieving player info:', error);
+            alert('Error retrieving player info:');
         }
     };
 
