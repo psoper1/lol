@@ -46,6 +46,23 @@ function Home() {
         }
     };
 
+    const fetchChampionImage = async (championName) => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/champs/');
+            const champions = response.data;
+            const champion = champions.find((champion) => champion.name === championName);
+            if (champion) {
+                return champion.image;
+            } else {
+                console.error(`Champion not found: ${championName}`);
+                return null;
+            }
+        } catch (error) {
+            console.error(`Error retrieving champion image for ${championName}:`, error);
+            return null;
+        }
+    };
+
     const fetchMatchDetails = async (matchId) => {
         try {
             const matchDetailsResponse = await axios.get(
@@ -60,13 +77,22 @@ function Home() {
 
             const result = participant?.win ? "Win" : "Loss";
 
-            const team1Players = matchDetailsResponse.data?.info?.participants
-                .filter((participant) => participant.teamId === 100)
-                .map((participant) => participant.summonerName);
+            const fetchPlayerWithChampionImage = async (participant) => {
+                const championImage = await fetchChampionImage(participant.championName);
+                return { summonerName: participant.summonerName, championImage };
+            };
 
-            const team2Players = matchDetailsResponse.data?.info?.participants
-                .filter((participant) => participant.teamId === 200)
-                .map((participant) => participant.summonerName);
+            const team1Players = await Promise.all(
+                matchDetailsResponse.data?.info?.participants
+                    .filter((participant) => participant.teamId === 100)
+                    .map(fetchPlayerWithChampionImage)
+            );
+
+            const team2Players = await Promise.all(
+                matchDetailsResponse.data?.info?.participants
+                    .filter((participant) => participant.teamId === 200)
+                    .map(fetchPlayerWithChampionImage)
+            );
 
             const team1KDA = matchDetailsResponse.data?.info?.participants
                 .filter((participant) => participant.teamId === 100)
@@ -76,12 +102,18 @@ function Home() {
                 .filter((participant) => participant.teamId === 200)
                 .map((participant) => `${participant.kills}/${participant.deaths}/${participant.assists}`);
 
+            const gameDurationInSeconds = matchDetailsResponse.data?.info?.gameDuration;
+            const minutes = Math.floor(gameDurationInSeconds / 60);
+            const seconds = gameDurationInSeconds % 60;
+            const gameDuration = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
             return {
                 result,
                 team1Players,
                 team2Players,
                 team1KDA,
                 team2KDA,
+                gameDuration,
             };
         } catch (error) {
             console.error(`Error retrieving match details for match ID ${matchId}:`, error);
@@ -91,6 +123,7 @@ function Home() {
                 team2Players: [],
                 team1KDA: [],
                 team2KDA: [],
+                gameDuration: "Unknown",
             };
         }
     };
