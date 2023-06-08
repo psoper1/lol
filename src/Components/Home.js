@@ -3,6 +3,7 @@ import MatchHistoryTempOne from "./MatchHistoryTempOne";
 import Nav from "./Nav";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Fuse from 'fuse.js';
 
 function Home() {
     const [playerName, setPlayerName] = useState("");
@@ -50,9 +51,23 @@ function Home() {
         try {
             const response = await axios.get('http://127.0.0.1:8000/champs/');
             const champions = response.data;
-            const champion = champions.find((champion) => champion.name === championName);
-            if (champion) {
-                return champion.image;
+
+            // Configure Fuse options
+            const fuseOptions = {
+                keys: ['name'], // Specify the key(s) to search on
+                includeScore: true, // Include search score in the result
+                threshold: 0.3, // Adjust the matching threshold as needed
+            };
+
+            const fuse = new Fuse(champions, fuseOptions);
+
+            // Perform the fuzzy search
+            const searchResults = fuse.search(championName);
+
+            if (searchResults.length > 0) {
+                // Get the closest match from the search results
+                const closestMatch = searchResults[0].item;
+                return closestMatch.image;
             } else {
                 console.error(`Champion not found: ${championName}`);
                 return null;
@@ -68,6 +83,7 @@ function Home() {
             const matchDetailsResponse = await axios.get(
                 `https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${apiKey}`
             );
+            console.log(matchDetailsResponse)
 
             const participantId = matchDetailsResponse.data?.info?.participants.findIndex(
                 (participant) => participant.puuid === puuid
