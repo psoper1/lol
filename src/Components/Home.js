@@ -1,4 +1,5 @@
 import BgVideo from "./BgVideo";
+import MatchHistoryTempOne from "./MatchHistoryTempOne";
 import Nav from "./Nav";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -58,19 +59,49 @@ function Home() {
             const participant = matchDetailsResponse.data?.info?.participants[participantId];
             console.log(participant);
             const result = participant.win ? "Win" : "Loss";
-            return result;
+
+            const team1Players = matchDetailsResponse.data?.info?.participants
+                .filter((participant) => participant.teamId === 100)
+                .map((participant) => participant.summonerName);
+
+            const team2Players = matchDetailsResponse.data?.info?.participants
+                .filter((participant) => participant.teamId === 200)
+                .map((participant) => participant.summonerName);
+
+            return {
+                result,
+                team1Players,
+                team2Players
+            };
         } catch (error) {
             console.error(`Error retrieving match details for match ID ${matchId}:`, error);
             return null;
         }
     };
 
+    // Fetches all past 20 games
+
+    // useEffect(() => {
+    //     if (matchHistoryData) {
+    //         const fetchMatchResults = async () => {
+    //             const matchResults = await Promise.all(matchHistoryData.map((matchId) => fetchMatchDetails(matchId)));
+    //             setMatchResults(matchResults);
+    //             // console.log(matchResults)
+    //         };
+    //         fetchMatchResults();
+    //     }
+    // }, [matchHistoryData]);
+
+    // Fetches one game to limit API calls while coding and styling
+
     useEffect(() => {
-        if (matchHistoryData) {
+        if (matchHistoryData && matchHistoryData.length > 0) {
             const fetchMatchResults = async () => {
-                const matchResults = await Promise.all(matchHistoryData.map((matchId) => fetchMatchDetails(matchId)));
-                setMatchResults(matchResults);
-                // console.log(matchResults)
+                const firstMatchId = matchHistoryData[0];
+                const matchResult = await fetchMatchDetails(firstMatchId);
+                if (matchResult) {
+                    setMatchResults([matchResult]);
+                }
             };
             fetchMatchResults();
         }
@@ -114,7 +145,8 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                {playerInfo && (
+                <MatchHistoryTempOne playerInfo={playerInfo} profileIconUrl={profileIconUrl} matchResults={matchResults} matchHistoryData={matchHistoryData} />
+                {/* {playerInfo && (
                     <div className="player-info-container">
                         <h4 className="text-center">{playerInfo.name}</h4>
                         <div className="profile-icon-div">
@@ -124,19 +156,40 @@ function Home() {
                                 alt={`Profile Icon for ${playerInfo.name}`}
                             />
                         </div>
-                        {matchResults && (
+                        {matchResults && matchHistoryData && (
                             <div className="match-history-container">
                                 <h5>Match History:</h5>
-                                {matchHistoryData.map((matchId, index) => (
-                                    <div key={matchId} className="match-info">
-                                        <h6>Match ID: {matchId}</h6>
-                                        <p>Result: {matchResults[index]}</p>
-                                    </div>
-                                ))}
+                                {matchHistoryData.map((matchId, index) => {
+                                    const matchResult = matchResults[index];
+                                    return (
+                                        <div key={matchId} className="match-info">
+                                            <h6 className="text-white">Match ID: {matchId}</h6>
+                                            <p className="text-white">Result: {matchResult.result}</p>
+                                            <div>
+                                                <div className="team-players">
+                                                    <h6 className="text-white">Team 1 Players:</h6>
+                                                    <ul className="player-list">
+                                                        {matchResult.team1Players.map((player, playerIndex) => (
+                                                            <li className="text-white" key={playerIndex}>{player}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                                <div className="team-players">
+                                                    <h6 className="text-white">Team 2 Players:</h6>
+                                                    <ul className="player-list">
+                                                        {matchResult.team2Players.map((player, playerIndex) => (
+                                                            <li className="text-white" key={playerIndex}>{player}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         )}
                     </div>
-                )}
+                )} */}
             </div>
         </>
     );
