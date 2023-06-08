@@ -51,14 +51,14 @@ function Home() {
             const matchDetailsResponse = await axios.get(
                 `https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${apiKey}`
             );
-            console.log(matchDetailsResponse);
+
             const participantId = matchDetailsResponse.data?.info?.participants.findIndex(
-                (participant) => participant.summonerName === playerName
+                (participant) => participant.puuid === puuid
             );
-            console.log(participantId);
+
             const participant = matchDetailsResponse.data?.info?.participants[participantId];
-            console.log(participant);
-            const result = participant.win ? "Win" : "Loss";
+
+            const result = participant?.win ? "Win" : "Loss";
 
             const team1Players = matchDetailsResponse.data?.info?.participants
                 .filter((participant) => participant.teamId === 100)
@@ -68,14 +68,30 @@ function Home() {
                 .filter((participant) => participant.teamId === 200)
                 .map((participant) => participant.summonerName);
 
+            const team1KDA = matchDetailsResponse.data?.info?.participants
+                .filter((participant) => participant.teamId === 100)
+                .map((participant) => `${participant.kills}/${participant.deaths}/${participant.assists}`);
+
+            const team2KDA = matchDetailsResponse.data?.info?.participants
+                .filter((participant) => participant.teamId === 200)
+                .map((participant) => `${participant.kills}/${participant.deaths}/${participant.assists}`);
+
             return {
                 result,
                 team1Players,
-                team2Players
+                team2Players,
+                team1KDA,
+                team2KDA,
             };
         } catch (error) {
             console.error(`Error retrieving match details for match ID ${matchId}:`, error);
-            return null;
+            return {
+                result: "Unknown",
+                team1Players: [],
+                team2Players: [],
+                team1KDA: [],
+                team2KDA: [],
+            };
         }
     };
 
