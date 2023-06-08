@@ -121,6 +121,7 @@ function Home() {
             };
             fetchMatchResults();
         }
+        // eslint-disable-next-line
     }, [matchHistoryData]);
 
     const handleSearch = () => {
