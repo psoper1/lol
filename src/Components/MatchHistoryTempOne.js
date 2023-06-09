@@ -22,47 +22,103 @@ function MatchHistoryTempOne({ playerInfo, matchResults, matchHistoryData, profi
                                     <div key={matchId} className="match-info">
                                         {matchResult && (
                                             <>
-                                                <p className={`text-center ${matchResult.result === "VICTORY" ? "victory" : "defeat"}`}>{matchResult.result}</p>
+                                                <p className={`text-center ${matchResult.result === "VICTORY" ? "victory" : "defeat"}`}>
+                                                    {matchResult.result}
+                                                </p>
                                                 <div>
                                                     <h6 className="game-duration">Game Duration: {matchResult.gameDuration}</h6>
                                                 </div>
-                                                {matchResult.gameMode === "CLASSIC" ? <div className="gamemode">RANKED</div> : <div className="gamemode">{matchResult.gameMode}</div>}
-                                                <div className="teams-container">
-                                                    <div className="team-column">
-                                                        <h6 className="side-text text-center">Blue Side</h6>
-                                                        <ul className="player-list">
+                                                {matchResult.gameMode === "CLASSIC" ? (
+                                                    <div className="gamemode">RANKED</div>
+                                                ) : (
+                                                    <div className="gamemode">{matchResult.gameMode}</div>
+                                                )}
+                                                {matchResult.team1Players && matchResult.team1Players.length > 0 && (
+                                                    <table className="match-details-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th className="table-text-color">Summoner</th>
+                                                                <th className="damage-dealt-column table-text-color">Damage Dealt</th>
+                                                                <th className="table-text-color">Item Build</th>
+                                                                <th className="text-center table-text-color">KDA</th>
+                                                                <th className="table-text-color">CS</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
                                                             {matchResult.team1Players.map((player, playerIndex) => (
-                                                                <li
-                                                                    className={`text-white full-info ${team1Won ? "team-lost" : "team-won"}`}
+                                                                <tr
+                                                                    className={`text-white ${team1Won ? "team-lost" : "team-won"}`}
                                                                     key={playerIndex}
                                                                 >
-                                                                    <img className="champ-image-match" src={player.championImage} alt="Champion" />
-                                                                    <span className="player-info">
+                                                                    <td className="player-info-table">
+                                                                        <img className="champ-image-match" src={player.championImage} alt="Champion" />
                                                                         <span className="player-name">{player.summonerName}</span>
+                                                                    </td>
+                                                                    <td className="damage-row">
+                                                                        <div className="dmg-numbers">{player.damageDealt.toLocaleString()}</div>
+                                                                        <div className="damage-bar">
+                                                                            <div
+                                                                                className="damage-filled"
+                                                                                style={{ width: `${(player.damageDealt / 50000) * 100}%` }}
+                                                                            ></div>
+                                                                        </div>
+                                                                        <span className="damage-done">{player.damageDealt}</span>
+                                                                    </td>
+                                                                    <td>Item Build</td> {/* Placeholder for Item Build column */}
+                                                                    <td>
                                                                         <span className="kda">{matchResult.team1KDA[playerIndex]}</span>
-                                                                    </span>
-                                                                </li>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span className="cs">{player.cs}</span>
+                                                                    </td>
+                                                                </tr>
                                                             ))}
-                                                        </ul>
-                                                    </div>
-                                                    <div className="team-column">
-                                                        <h6 className="side-text text-center">Red Side</h6>
-                                                        <ul className="player-list">
+                                                        </tbody>
+                                                    </table>
+                                                )}
+                                                {matchResult.team2Players && matchResult.team2Players.length > 0 && (
+                                                    <table className="match-details-table-2">
+                                                        <thead>
+                                                            <tr>
+                                                                <th className="table-text-color-2 table-summoner">Summoner</th>
+                                                                <th className="damage-dealt-column table-text-color-2">Damage Dealt</th>
+                                                                <th className="table-text-color-2">Item Build</th>
+                                                                <th className="text-center table-text-color-2">KDA</th>
+                                                                <th className="table-text-color-2">CS</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
                                                             {matchResult.team2Players.map((player, playerIndex) => (
-                                                                <li
-                                                                    className={`text-white full-info ${team1Won ? "team-won" : "team-lost"}`}
+                                                                <tr
+                                                                    className={`text-white ${team1Won ? "team-won" : "team-lost"}`}
                                                                     key={playerIndex}
                                                                 >
-                                                                    <img className="champ-image-match" src={player.championImage} alt="Champion" />
-                                                                    <span className="player-info">
+                                                                    <td className="player-info-table">
+                                                                        <img className="champ-image-match" src={player.championImage} alt="Champion" />
                                                                         <span className="player-name">{player.summonerName}</span>
+                                                                    </td>
+                                                                    <td className="damage-row">
+                                                                        <div className="dmg-numbers">{player.damageDealt.toLocaleString()}</div>
+                                                                        <div className="damage-bar">
+                                                                            <div
+                                                                                className="damage-filled"
+                                                                                style={{ width: `${(player.damageDealt / 50000) * 100}%` }}
+                                                                            ></div>
+                                                                        </div>
+                                                                        <span className="damage-done">{player.damageDealt}</span>
+                                                                    </td>
+                                                                    <td>Item Build</td> {/* Placeholder for Item Build column */}
+                                                                    <td>
                                                                         <span className="kda">{matchResult.team2KDA[playerIndex]}</span>
-                                                                    </span>
-                                                                </li>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span className="cs">{player.cs}</span>
+                                                                    </td>
+                                                                </tr>
                                                             ))}
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                                        </tbody>
+                                                    </table>
+                                                )}
                                             </>
                                         )}
                                     </div>

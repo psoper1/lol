@@ -21,7 +21,7 @@
 
 .player-info {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 100%;
 }
 
@@ -54,7 +54,8 @@
   border-bottom: solid;
   border-bottom-width: 2px;
   border-color: rgb(0, 0, 0);
-  display: flex; /* Add this line */
+  display: flex;
+  /* Add this line */
   align-items: center;
 }
 
@@ -66,7 +67,34 @@
   background-color: #6e160f;
 }
 
-.victory, .loading-text {
+.damage-bar {
+  width: 95%;
+  height: 10px;
+  background-color: black;
+  position: relative;
+  margin-left: 2%;
+}
+
+.damage-done {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: Beaufort-Bold;
+  color: rgb(240, 230, 210);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.damage-filled {
+  height: 100%;
+  background-color: green;
+  /* You can customize the color here */
+}
+
+.victory,
+.loading-text {
   font-family: Beaufort-Bold;
   color: rgb(200, 155, 60);
   font-size: 20pt;
@@ -99,12 +127,23 @@ li {
   }
 }
 
+.table-text-color {
+  color: rgb(200, 155, 60);
+}
+
+.table-text-color-2 {
+  color: transparent;
+}
+
+.table-summoner {
+  width: 40.63%;
+}
+
 .kda {
   display: flex;
-  flex-direction: row-reverse;
   align-content: stretch;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   font-family: Beaufort-Bold;
   color: rgb(240, 230, 210);
   letter-spacing: 0.05em;
@@ -112,9 +151,28 @@ li {
   margin-right: 3%;
 }
 
+.cs {
+  font-family: Beaufort-Bold;
+  color: rgb(240, 230, 210);
+  letter-spacing: 0.05em;
+  font-size: 13pt;
+}
+
 .game-duration {
   font-family: Beaufort-Bold;
   color: rgb(240, 230, 210);
+}
+
+.match-details-table-2 {
+  margin-top: -2.5%;
+}
+
+.dmg-numbers {
+  margin-bottom: 2%;
+}
+
+.damage-row {
+  justify-content: center;
 }
 
 .gamemode {
@@ -126,4 +184,18 @@ li {
 .side-text {
   font-family: Spiegal-Regular;
   color: rgb(240, 230, 210);
+}
+
+.match-details-table th,
+.match-details-table td,
+.match-details-table-2 th,
+.match-details-table-2 td {
+  /* Add this line to set equal width for each column */
+  width: calc(100% / 5);
+  text-align: center;
+}
+
+.player-info-table {
+  width: 100% !important;
+  display: flex;
 }
