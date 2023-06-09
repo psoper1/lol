@@ -66,7 +66,7 @@
   background-color: #6e160f;
 }
 
-.victory {
+.victory, .loading-text {
   font-family: Beaufort-Bold;
   color: rgb(200, 155, 60);
   font-size: 20pt;

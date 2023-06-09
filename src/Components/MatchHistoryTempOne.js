@@ -70,11 +70,14 @@ function MatchHistoryTempOne({ playerInfo, matchResults, matchHistoryData, profi
                             })}
                         </div>
                     ) : (
-                        <div className="container spinner">
-                            <div className="spinner-border text-warning" role="status">
-                                <span className="sr-only"></span>
+                        <>
+                            <div className="container spinner">
+                                <div className="spinner-border text-warning" role="status">
+                                    <span className="sr-only"></span>
+                                </div>
                             </div>
-                        </div>
+                            <div className="text-center loading-text">Loading Summoner...</div>
+                        </>
                     )}
                 </div>
             )}
