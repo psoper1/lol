@@ -16,7 +16,7 @@ function MatchHistoryTempOne({ playerInfo, matchResults, matchHistoryData, profi
                             <h5 className="match-history-text text-center">Match History:</h5>
                             {matchResults.map((matchResult, index) => {
                                 const matchId = matchHistoryData[index];
-                                const team1Won = matchResult.result === "win"; // Check if team 1 won
+                                const team1Won = matchResult.result === "VICTORY";
 
                                 return (
                                     <div key={matchId} className="match-info">
@@ -27,14 +27,13 @@ function MatchHistoryTempOne({ playerInfo, matchResults, matchHistoryData, profi
                                                     <h6 className="game-duration">Game Duration: {matchResult.gameDuration}</h6>
                                                 </div>
                                                 {matchResult.gameMode === "CLASSIC" ? <div className="gamemode">RANKED</div> : <div className="gamemode">{matchResult.gameMode}</div>}
-                                                {/* <div className="text-white">{matchResult.gameMode}</div> */}
                                                 <div className="teams-container">
                                                     <div className="team-column">
                                                         <h6 className="side-text text-center">Blue Side</h6>
                                                         <ul className="player-list">
                                                             {matchResult.team1Players.map((player, playerIndex) => (
                                                                 <li
-                                                                    className={`text-white full-info ${team1Won ? "team-won" : "team-lost"}`} // Apply different classes based on match result
+                                                                    className={`text-white full-info ${team1Won ? "team-lost" : "team-won"}`}
                                                                     key={playerIndex}
                                                                 >
                                                                     <img className="champ-image-match" src={player.championImage} alt="Champion" />
@@ -51,7 +50,7 @@ function MatchHistoryTempOne({ playerInfo, matchResults, matchHistoryData, profi
                                                         <ul className="player-list">
                                                             {matchResult.team2Players.map((player, playerIndex) => (
                                                                 <li
-                                                                    className={`text-white full-info ${team1Won ? "team-lost" : "team-won"}`} // Apply different classes based on match result
+                                                                    className={`text-white full-info ${team1Won ? "team-won" : "team-lost"}`}
                                                                     key={playerIndex}
                                                                 >
                                                                     <img className="champ-image-match" src={player.championImage} alt="Champion" />
