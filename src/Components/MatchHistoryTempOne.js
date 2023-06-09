@@ -46,10 +46,7 @@ function MatchHistoryTempOne({ playerInfo, matchResults, matchHistoryData, profi
                                                         </thead>
                                                         <tbody>
                                                             {matchResult.team1Players.map((player, playerIndex) => (
-                                                                <tr
-                                                                    className={`text-white ${team1Won ? "team-lost" : "team-won"}`}
-                                                                    key={playerIndex}
-                                                                >
+                                                                <tr className={`text-white ${team1Won ? "team-lost" : "team-won"}`} key={playerIndex}>
                                                                     <td className="player-info-table">
                                                                         <img className="champ-image-match" src={player.championImage} alt="Champion" />
                                                                         <span className="player-name">{player.summonerName}</span>
@@ -59,12 +56,11 @@ function MatchHistoryTempOne({ playerInfo, matchResults, matchHistoryData, profi
                                                                         <div className="damage-bar">
                                                                             <div
                                                                                 className="damage-filled"
-                                                                                style={{ width: `${(player.damageDealt / 50000) * 100}%` }}
-                                                                            ></div>
+                                                                                style={{ width: `${(player.damageDealt / 50000) * 100}%` }}></div>
                                                                         </div>
                                                                         <span className="damage-done">{player.damageDealt}</span>
                                                                     </td>
-                                                                    <td>Item Build</td> {/* Placeholder for Item Build column */}
+                                                                    <td>Item Build</td>
                                                                     <td>
                                                                         <span className="kda">{matchResult.team1KDA[playerIndex]}</span>
                                                                     </td>
@@ -89,10 +85,7 @@ function MatchHistoryTempOne({ playerInfo, matchResults, matchHistoryData, profi
                                                         </thead>
                                                         <tbody>
                                                             {matchResult.team2Players.map((player, playerIndex) => (
-                                                                <tr
-                                                                    className={`text-white ${team1Won ? "team-won" : "team-lost"}`}
-                                                                    key={playerIndex}
-                                                                >
+                                                                <tr className={`text-white ${team1Won ? "team-won" : "team-lost"}`} key={playerIndex}>
                                                                     <td className="player-info-table">
                                                                         <img className="champ-image-match" src={player.championImage} alt="Champion" />
                                                                         <span className="player-name">{player.summonerName}</span>
@@ -102,12 +95,11 @@ function MatchHistoryTempOne({ playerInfo, matchResults, matchHistoryData, profi
                                                                         <div className="damage-bar">
                                                                             <div
                                                                                 className="damage-filled"
-                                                                                style={{ width: `${(player.damageDealt / 50000) * 100}%` }}
-                                                                            ></div>
+                                                                                style={{ width: `${(player.damageDealt / 50000) * 100}%` }}></div>
                                                                         </div>
                                                                         <span className="damage-done">{player.damageDealt}</span>
                                                                     </td>
-                                                                    <td>Item Build</td> {/* Placeholder for Item Build column */}
+                                                                    <td>Item Build</td>
                                                                     <td>
                                                                         <span className="kda">{matchResult.team2KDA[playerIndex]}</span>
                                                                     </td>
