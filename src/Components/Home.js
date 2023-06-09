@@ -52,20 +52,17 @@ function Home() {
             const response = await axios.get('http://127.0.0.1:8000/champs/');
             const champions = response.data;
 
-            // Configure Fuse options
             const fuseOptions = {
-                keys: ['name'], // Specify the key(s) to search on
-                includeScore: true, // Include search score in the result
-                threshold: 0.3, // Adjust the matching threshold as needed
+                keys: ['name'],
+                includeScore: true,
+                threshold: 0.4,
             };
 
             const fuse = new Fuse(champions, fuseOptions);
 
-            // Perform the fuzzy search
             const searchResults = fuse.search(championName);
 
             if (searchResults.length > 0) {
-                // Get the closest match from the search results
                 const closestMatch = searchResults[0].item;
                 return closestMatch.image;
             } else {
@@ -91,7 +88,7 @@ function Home() {
 
             const participant = matchDetailsResponse.data?.info?.participants[participantId];
 
-            const result = participant?.win ? "Win" : "Loss";
+            const result = participant?.win ? "VICTORY" : "DEFEAT";
 
             const fetchPlayerWithChampionImage = async (participant) => {
                 const championImage = await fetchChampionImage(participant.championName);
@@ -117,7 +114,9 @@ function Home() {
             const team2KDA = matchDetailsResponse.data?.info?.participants
                 .filter((participant) => participant.teamId === 200)
                 .map((participant) => `${participant.kills}/${participant.deaths}/${participant.assists}`);
-
+            
+            const gameMode = matchDetailsResponse.data?.info?.gameMode
+            
             const gameDurationInSeconds = matchDetailsResponse.data?.info?.gameDuration;
             const minutes = Math.floor(gameDurationInSeconds / 60);
             const seconds = gameDurationInSeconds % 60;
@@ -130,6 +129,7 @@ function Home() {
                 team1KDA,
                 team2KDA,
                 gameDuration,
+                gameMode,
             };
         } catch (error) {
             console.error(`Error retrieving match details for match ID ${matchId}:`, error);

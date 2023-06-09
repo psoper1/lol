@@ -1,22 +1,129 @@
 .teams-container {
-    display: flex;
-  }
-  
-  .team-column {
-    flex: 1;
-  }
+  display: flex;
+}
 
-  .champ-image-match {
-    height: 64px;
-    width: 64px;
-  }
+.team-column {
+  flex: 1;
+}
 
-  .player-list {
-    display: flex;
+.champ-image-match {
+  height: 47px;
+  width: 47px;
+}
+
+.player-list {
+  margin-left: -34px;
+}
+
+.player-match {
+  margin-left: 2%;
+}
+
+.player-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.player-info .player-match {
+  flex-grow: 1;
+}
+
+.player-name {
+  margin-left: 2%;
+  font-family: Beaufort-Bold;
+  color: rgb(240, 230, 210);
+  font-size: 16pt;
+}
+
+.match-history-text {
+  font-family: Beaufort-Bold;
+  color: rgb(240, 230, 210);
+  font-size: 16pt;
+  margin-top: 1%;
+}
+
+.player-name-text {
+  font-family: Beaufort-Bold;
+  color: rgb(240, 230, 210);
+  font-size: 16pt;
+}
+
+.full-info {
+  width: 100%;
+  border-bottom: solid;
+  border-bottom-width: 2px;
+  border-color: rgb(0, 0, 0);
+  display: flex; /* Add this line */
+  align-items: center;
+}
+
+.team-won {
+  background-color: #091428;
+}
+
+.team-lost {
+  background-color: #6e160f;
+}
+
+.victory {
+  font-family: Beaufort-Bold;
+  color: rgb(200, 155, 60);
+  font-size: 20pt;
+}
+
+.defeat {
+  font-family: Beaufort-Bold;
+  color: #6e160f;
+  font-size: 20pt;
+}
+
+li {
+  list-style-type: none;
+}
+
+.match-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.teams-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (max-width: 740px) {
+  .teams-container {
     flex-direction: column;
-    margin-left: -34px;
   }
+}
 
-  li {
-    list-style-type: none;
-  }
+.kda {
+  display: flex;
+  flex-direction: row-reverse;
+  align-content: stretch;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: Beaufort-Bold;
+  color: rgb(240, 230, 210);
+  letter-spacing: 0.05em;
+  font-size: 14pt;
+  margin-right: 3%;
+}
+
+.game-duration {
+  font-family: Beaufort-Bold;
+  color: rgb(240, 230, 210);
+}
+
+.gamemode {
+  font-family: Beaufort-Bold;
+  color: rgb(200, 155, 60);
+  letter-spacing: 0.05em;
+}
+
+.side-text {
+  font-family: Spiegal-Regular;
+  color: rgb(240, 230, 210);
+}
