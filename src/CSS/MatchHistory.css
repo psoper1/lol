@@ -21,7 +21,6 @@
 
 .player-info {
   display: flex;
-  /* justify-content: space-between; */
   width: 100%;
 }
 
@@ -55,7 +54,6 @@
   border-bottom-width: 2px;
   border-color: rgb(0, 0, 0);
   display: flex;
-  /* Add this line */
   align-items: center;
 }
 
@@ -70,27 +68,29 @@
 .damage-bar {
   width: 95%;
   height: 10px;
-  background-color: black;
+  background-color: #32281E;
   position: relative;
   margin-left: 2%;
 }
 
+.damage-filled {
+  height: 100%;
+  background-color: #C8AA6E;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+}
+
 .damage-done {
   position: absolute;
-  top: -20px;
+  top: 0;
   left: 0;
-  width: 100%;
   text-align: center;
   font-family: Beaufort-Bold;
   color: rgb(240, 230, 210);
   font-size: 12px;
   white-space: nowrap;
-}
-
-.damage-filled {
-  height: 100%;
-  background-color: green;
-  /* You can customize the color here */
 }
 
 .victory,
@@ -161,6 +161,7 @@ li {
 .game-duration {
   font-family: Beaufort-Bold;
   color: rgb(240, 230, 210);
+  margin-top: -2%;
 }
 
 .match-details-table-2 {
@@ -190,7 +191,6 @@ li {
 .match-details-table td,
 .match-details-table-2 th,
 .match-details-table-2 td {
-  /* Add this line to set equal width for each column */
   width: calc(100% / 5);
   text-align: center;
 }

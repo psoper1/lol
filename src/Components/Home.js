@@ -88,7 +88,7 @@ function Home() {
 
             const participant = matchDetailsResponse.data?.info?.participants[participantId];
 
-            const result = participant?.win ? "VICTORY" : "DEFEAT";
+            const result = participant?.win;
 
             const fetchPlayerWithChampionImage = async (participant) => {
                 const championImage = await fetchChampionImage(participant.championName);
@@ -156,32 +156,32 @@ function Home() {
 
     // Fetches all past 20 games
 
-    // useEffect(() => {
-    //     if (matchHistoryData) {
-    //         const fetchMatchResults = async () => {
-    //             const matchResults = await Promise.all(matchHistoryData.map((matchId) => fetchMatchDetails(matchId)));
-    //             setMatchResults(matchResults);
-    //             // console.log(matchResults)
-    //         };
-    //         fetchMatchResults();
-    //     }
-    // }, [matchHistoryData]);
-
-    // Fetches one game to limit API calls while coding and styling
-
     useEffect(() => {
-        if (matchHistoryData && matchHistoryData.length > 0) {
+        if (matchHistoryData) {
             const fetchMatchResults = async () => {
-                const firstMatchId = matchHistoryData[0];
-                const matchResult = await fetchMatchDetails(firstMatchId);
-                if (matchResult) {
-                    setMatchResults([matchResult]);
-                }
+                const matchResults = await Promise.all(matchHistoryData.map((matchId) => fetchMatchDetails(matchId)));
+                setMatchResults(matchResults);
+                // console.log(matchResults)
             };
             fetchMatchResults();
         }
-        // eslint-disable-next-line
     }, [matchHistoryData]);
+
+    // Fetches one game to limit API calls while coding and styling
+
+    // useEffect(() => {
+    //     if (matchHistoryData && matchHistoryData.length > 0) {
+    //         const fetchMatchResults = async () => {
+    //             const firstMatchId = matchHistoryData[0];
+    //             const matchResult = await fetchMatchDetails(firstMatchId);
+    //             if (matchResult) {
+    //                 setMatchResults([matchResult]);
+    //             }
+    //         };
+    //         fetchMatchResults();
+    //     }
+        // eslint-disable-next-line
+    // }, [matchHistoryData]);
 
     const handleSearch = () => {
         fetchPlayerInfo();
