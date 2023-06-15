@@ -13,6 +13,7 @@ function Home() {
     const [puuid, setPuuid] = useState("");
     const [matchHistoryData, setMatchHistoryData] = useState(null);
     const [matchResults, setMatchResults] = useState(null);
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
         axios
@@ -82,13 +83,26 @@ function Home() {
             );
             console.log(matchDetailsResponse);
 
+            
             const participantId = matchDetailsResponse.data?.info?.participants.findIndex(
                 (participant) => participant.puuid === puuid
-            );
+                );
+                
+                const participant = matchDetailsResponse.data?.info?.participants[participantId];
+                
+                const result = participant?.win;
 
-            const participant = matchDetailsResponse.data?.info?.participants[participantId];
-
-            const result = participant?.win;
+                // const item0 = participant?.item0;
+                // const item1 = participant?.item1;
+                // const item2 = participant?.item2;
+                // const item3 = participant?.item3;
+                // const item4 = participant?.item4;
+                // const item5 = participant?.item5;
+                // const allItems = [];
+                // allItems.push(item0, item1, item2, item3, item4, item5)
+                // setItems(allItems)
+                
+                // console.log(items)
 
             const fetchPlayerWithChampionImage = async (participant) => {
                 const championImage = await fetchChampionImage(participant.championName);
@@ -140,6 +154,7 @@ function Home() {
                 team2KDA,
                 gameDuration,
                 gameMode,
+                // allItems,
             };
         } catch (error) {
             console.error(`Error retrieving match details for match ID ${matchId}:`, error);
