@@ -101,7 +101,20 @@ function MatchHistoryTempOne({
                                           ></div>
                                         </div>
                                       </td>
-                                      <td>Item Build</td>
+                                      <td>
+                                        <div className="item-build">
+                                          {player.playerItems.map(
+                                            (item, itemIndex) => (
+                                              <img
+                                                key={itemIndex}
+                                                className="item-image"
+                                                src={`http://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/${item.itemId}.png`}
+                                                alt={`Item ${item.itemId}`}
+                                              />
+                                            )
+                                          )}
+                                        </div>
+                                      </td>
                                       <td>
                                         <span className="kda">
                                           {matchResult.team1KDA[playerIndex]}
@@ -174,7 +187,20 @@ function MatchHistoryTempOne({
                                           {player.damageDealt}
                                         </span>
                                       </td>
-                                      <td>Item Build</td>
+                                      <td>
+                                      <div className="item-build">
+                                          {player.playerItems.map(
+                                            (item, itemIndex) => (
+                                              <img
+                                                key={itemIndex}
+                                                className="item-image"
+                                                src={`http://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/${item.itemId}.png`}
+                                                alt={`Item ${item.itemId}`}
+                                              />
+                                            )
+                                          )}
+                                        </div>
+                                      </td>
                                       <td>
                                         <span className="kda">
                                           {matchResult.team2KDA[playerIndex]}

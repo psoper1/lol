@@ -170,6 +170,8 @@ li {
 
 .dmg-numbers {
   margin-bottom: 2%;
+  font-family: Spiegal-Regular;
+  color: rgb(240, 230, 210);
 }
 
 .damage-row {
@@ -198,4 +200,50 @@ li {
 .player-info-table {
   width: 100% !important;
   display: flex;
+}
+
+/* Items */
+
+.item-image {
+  height: 35px;
+  width: 35px;
+  padding-right: 2px;
+}
+
+.item-build {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 663px) {
+  .item-build {
+    flex-wrap: wrap;
+  }
+
+  .item-build > div {
+    width: 33.33%;
+    box-sizing: border-box;
+    padding: 5px;
+  }
+
+  .item-image {
+    height: 20px;
+    width: 20px;
+  }
+
+  .player-name {
+    font-size: 10pt;
+  }
+
+  .kda {
+    font-size: 10pt;
+  }
+
+  .cs {
+    font-size: 10pt;
+  }
+
+  .dmg-numbers {
+    font-size: 10pt;
+  }
 }
