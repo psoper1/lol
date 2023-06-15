@@ -83,7 +83,7 @@ function Home() {
       const matchDetailsResponse = await axios.get(
         `https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${apiKey}`
       );
-      console.log(matchDetailsResponse);
+    //   console.log(matchDetailsResponse);
 
       const participantId =
         matchDetailsResponse.data?.info?.participants.findIndex(
@@ -94,7 +94,7 @@ function Home() {
         matchDetailsResponse.data?.info?.participants[participantId];
 
       const result = participant?.win;
-
+            // eslint-disable-next-line
       const fetchPlayerWithChampionImage = async (participant) => {
         const championImage = await fetchChampionImage(
           participant.championName
@@ -159,21 +159,6 @@ function Home() {
       const seconds = gameDurationInSeconds % 60;
       const gameDuration = `${minutes}:${seconds.toString().padStart(2, "0")}`;
 
-      // Fetch item data
-    //   const itemData = await fetchItemData();
-
-    //   const getPlayerItems = async (participant) => {
-    //     const items = [];
-    //     for (let i = 0; i <= 5; i++) {
-    //       const itemId = participant[`item${i}`];
-    //       if (itemId && itemData[itemId]) {
-    //         const itemImage = itemData[itemId].image.full;
-    //         items.push({ itemId, itemImage });
-    //       }
-    //     }
-    //     return items;
-    //   };
-
       const team1PlayerItems = await Promise.all(
         team1Players.map(getPlayerItems)
       );
@@ -181,7 +166,7 @@ function Home() {
         team2Players.map(getPlayerItems)
       );
 
-      console.log(matchDetailsResponse);
+    //   console.log(matchDetailsResponse);
 
       return {
         result,
@@ -223,21 +208,33 @@ function Home() {
   //     }
   // }, [matchHistoryData]);
 
-  // Fetches one game to limit API calls while coding and styling
-
   useEffect(() => {
     if (matchHistoryData && matchHistoryData.length > 0) {
       const fetchMatchResults = async () => {
-        const firstMatchId = matchHistoryData[0];
-        const matchResult = await fetchMatchDetails(firstMatchId);
-        if (matchResult) {
-          setMatchResults([matchResult]);
-        }
+        const matchResults = await Promise.all(
+          matchHistoryData.slice(0, 20).map((matchId) => fetchMatchDetails(matchId))
+        );
+        setMatchResults(matchResults);
       };
       fetchMatchResults();
     }
-    // eslint-disable-next-line
   }, [matchHistoryData]);
+
+  // Fetches one game to limit API calls while coding and styling
+
+//   useEffect(() => {
+//     if (matchHistoryData && matchHistoryData.length > 0) {
+//       const fetchMatchResults = async () => {
+//         const firstMatchId = matchHistoryData[0];
+//         const matchResult = await fetchMatchDetails(firstMatchId);
+//         if (matchResult) {
+//           setMatchResults([matchResult]);
+//         }
+//       };
+//       fetchMatchResults();
+//     }
+//     // eslint-disable-next-line
+//   }, [matchHistoryData]);
 
   const handleSearch = () => {
     fetchPlayerInfo();

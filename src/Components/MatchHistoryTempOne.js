@@ -1,9 +1,30 @@
+import { useState, useEffect } from "react";
+
 function MatchHistoryTempOne({
   playerInfo,
   matchResults,
   matchHistoryData,
   profileIconUrl,
 }) {
+
+  const [loadingText, setLoadingText] = useState("Loading Summoner...");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (loadingText === "Loading Summoner...") {
+        setLoadingText("Still waiting...");
+      } else if (loadingText === "Still waiting...") {
+        setLoadingText("Please be patient!");
+      } else {
+        setLoadingText("Loading Summoner...");
+      }
+    }, 3000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [loadingText]);
+
   return (
     <>
       {playerInfo && (
@@ -229,7 +250,7 @@ function MatchHistoryTempOne({
                 </div>
               </div>
               <div className="text-center loading-text">
-                Loading Summoner...
+                {loadingText}
               </div>
             </>
           )}

@@ -4,7 +4,7 @@ import SectionTwo from "./SectionTwo";
 import DescSection from './DescSection';
 import BgVideo from "../BgVideo";
 import { Dropdown } from 'react-bootstrap';
-import Builds from "./Builds";
+// import Builds from "./Builds";
 
 function SelectedChamp({ champ }) {
   const [newData, setNewData] = useState([]);
@@ -136,8 +136,11 @@ function SelectedChamp({ champ }) {
         {page === 'stats' &&
           <SectionTwo champ={champ} />
         }
+        {page === 'abilities' &&
+        <div className="text-center coming-soon">COMING SOON</div>
+        }
         {page === 'builds' &&
-          <Builds champ={champ} />
+          <div className="text-center coming-soon">COMING SOON</div>
         }
       </div>
     </>

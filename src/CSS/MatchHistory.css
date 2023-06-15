@@ -247,3 +247,9 @@ li {
     font-size: 10pt;
   }
 }
+
+.match-details-table tr,
+.match-details-table-2 tr {
+  padding: 4px;
+  font-size: 12px;
+}
