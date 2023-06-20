@@ -60,7 +60,12 @@ function Home() {
 
       const fuse = new Fuse(champions, fuseOptions);
 
-      const searchResults = fuse.search(championName);
+      let searchResults;
+      if (championName === "MonkeyKing") {
+        searchResults = fuse.search("Wukong");
+      } else {
+        searchResults = fuse.search(championName);
+      }
 
       if (searchResults.length > 0) {
         const closestMatch = searchResults[0].item;
@@ -83,7 +88,6 @@ function Home() {
       const matchDetailsResponse = await axios.get(
         `https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${apiKey}`
       );
-    //   console.log(matchDetailsResponse);
 
       const participantId =
         matchDetailsResponse.data?.info?.participants.findIndex(
@@ -94,7 +98,7 @@ function Home() {
         matchDetailsResponse.data?.info?.participants[participantId];
 
       const result = participant?.win;
-            // eslint-disable-next-line
+      // eslint-disable-next-line
       const fetchPlayerWithChampionImage = async (participant) => {
         const championImage = await fetchChampionImage(
           participant.championName
@@ -114,7 +118,9 @@ function Home() {
       };
 
       const fetchPlayerWithDamageDealt = async (participant) => {
-        const championImage = await fetchChampionImage(participant.championName);
+        const championImage = await fetchChampionImage(
+          participant.championName
+        );
         const playerItems = await getPlayerItems(participant);
         return {
           summonerName: participant.summonerName,
@@ -166,7 +172,7 @@ function Home() {
         team2Players.map(getPlayerItems)
       );
 
-    //   console.log(matchDetailsResponse);
+      //   console.log(matchDetailsResponse);
 
       return {
         result,
@@ -222,19 +228,19 @@ function Home() {
 
   // Fetches one game to limit API calls while coding and styling
 
-//   useEffect(() => {
-//     if (matchHistoryData && matchHistoryData.length > 0) {
-//       const fetchMatchResults = async () => {
-//         const firstMatchId = matchHistoryData[0];
-//         const matchResult = await fetchMatchDetails(firstMatchId);
-//         if (matchResult) {
-//           setMatchResults([matchResult]);
-//         }
-//       };
-//       fetchMatchResults();
-//     }
-//     // eslint-disable-next-line
-//   }, [matchHistoryData]);
+  // useEffect(() => {
+  //   if (matchHistoryData && matchHistoryData.length > 0) {
+  //     const fetchMatchResults = async () => {
+  //       const firstMatchId = matchHistoryData[0];
+  //       const matchResult = await fetchMatchDetails(firstMatchId);
+  //       if (matchResult) {
+  //         setMatchResults([matchResult]);
+  //       }
+  //     };
+  //     fetchMatchResults();
+  //   }
+  //   // eslint-disable-next-line
+  // }, [matchHistoryData]);
 
   const handleSearch = () => {
     fetchPlayerInfo();

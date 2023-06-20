@@ -97,6 +97,7 @@ function MatchHistoryTempOne({
                                         <img
                                           className="champ-image-match"
                                           src={player.championImage}
+                                          
                                           alt="Champion"
                                         />
                                         <span className="player-name">
